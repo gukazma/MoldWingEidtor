@@ -14,4 +14,4 @@ Vulkan::Vulkan
 glfw
 )
 
-target_include_directories(${TARGET_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/Modules/Shaders/generated/cpp)
+target_include_directories(${TARGET_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/Modules/Shaders/generated/cpp )
