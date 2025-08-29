@@ -1,1 +1,2 @@
 add_subdirectory(MyLibs)
+add_subdirectory(Shaders)

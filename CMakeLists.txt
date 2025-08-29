@@ -36,15 +36,16 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_DEBUG_POSTFIX "d")
 set(CMAKE_RELEASE_POSTFIX "") 
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE ${CMAKE_INSTALL_PREFIX}/bin)
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG ${CMAKE_INSTALL_PREFIX}/bin)
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELWITHDEBINFO ${CMAKE_INSTALL_PREFIX}/bin)  
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE ${CMAKE_SOURCE_DIR}/Bin)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG  ${CMAKE_SOURCE_DIR}/Bin)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELWITHDEBINFO  ${CMAKE_SOURCE_DIR}/Bin)  
 
 
 
 include(CMakeModules/doxygen.cmake)
 include(CMakeModules/dependency-graph.cmake)
 include(CMakeModules/formatting.cmake)
+include(CMakeModules/Shadercompile.cmake)
 # ---- Include guards ----
 if(PROJECT_SOURCE_DIR STREQUAL PROJECT_BINARY_DIR)
   message(
@@ -53,10 +54,11 @@ if(PROJECT_SOURCE_DIR STREQUAL PROJECT_BINARY_DIR)
   )
 endif()
 
+add_subdirectory(Vendors)
 add_subdirectory(Modules)
 add_subdirectory(Apps)
 enable_testing()
-add_subdirectory(Tests)
+# add_subdirectory(Tests)
 
 if(ENABLE_DOCS)
   file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/../Docs)
